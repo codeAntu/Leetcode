@@ -1,0 +1,34 @@
+int fun(struct TreeNode* root) {
+
+    int h1,h2;
+
+    if(!root)
+
+        return 0;
+
+    h1=fun(root->left);
+
+    h2=fun(root->right);
+
+    if(h1==-1 || h2==-1)
+
+        return -1;
+
+    if(h1-h2>=-1 && h1-h2<=1) {
+
+        return h1>h2?h1+1:h2+1;
+
+    }
+
+    else
+
+        return -1;
+
+}
+
+bool isBalanced(struct TreeNode* root) {
+
+    return fun(root) != -1;
+
+}
+
